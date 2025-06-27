@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Only run the color cycling on the index page
-if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+if (window.location.pathname === '/' || 
+    window.location.pathname.endsWith('index.html') || 
+    window.location.pathname.replace(/\/$/, '') === window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'))) {
     let currentState = 1;
     const totalStates = 3;
 
@@ -58,5 +60,5 @@ if (window.location.pathname === '/' || window.location.pathname.endsWith('index
     document.body.classList.add('state-1');
 
     // Start cycling colors every 500ms
-    setInterval(cycleColors, 5000);
+    setInterval(cycleColors, 3000);
 } 
